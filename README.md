@@ -1,4 +1,4 @@
-## Getting Started backend server
+## Getting Started backend server (open cmd or bash terminal)
 
 ```bash
 cd backend
@@ -6,7 +6,7 @@ npm i
 npm run dev
 ```
 
-## Getting Started frontend server
+## Getting Started frontend server (open cmd or bash terminal)
 
 ```bash
 cd frontend
