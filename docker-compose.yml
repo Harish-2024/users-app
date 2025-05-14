@@ -1,0 +1,30 @@
+services:
+  backend-dev:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile.backend
+      target: dev
+    volumes:
+      - ./backend:/app
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - NODE_ENV=development
+      - MONGO_URI=mongodb+srv://harish2024sharma:SARY6VVfPg1z43KR@mernauth.fvtzwp5.mongodb.net/users-app
+      
+  frontend-dev:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile.frontend
+      target: dev
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_APP_API_URL=http://localhost:5000
+    depends_on:
+      - backend-dev
+
