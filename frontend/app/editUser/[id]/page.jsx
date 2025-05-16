@@ -2,7 +2,7 @@ import EditUserForm from "@/components/EditUserForm";
 
 const getUserById = async (id) => {
     try {
-        const res = await fetch(`http://localhost:5000/api/user/${id}`, {
+        const res = await fetch(`http://backend-dev:5000/api/user/${id}`, {
             cache: "no-store",
         })
         if (!res.ok) {

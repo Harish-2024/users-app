@@ -11,4 +11,6 @@ router.get("/all-users", authController.getUsers)
 
 router.get("/:id", authController.getUser)
 
+router.delete("/:id", authController.deleteUser)
+
 export default router

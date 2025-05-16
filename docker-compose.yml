@@ -1,11 +1,10 @@
 services:
   backend-dev:
     build:
-      context: .
-      dockerfile: backend/Dockerfile.backend
-      target: dev
+      context: backend
     volumes:
       - ./backend:/app
+      - /app/node_modules
     ports:
       - "5000:5000"
     environment:
@@ -15,11 +14,10 @@ services:
       
   frontend-dev:
     build:
-      context: .
-      dockerfile: frontend/Dockerfile.frontend
-      target: dev
+      context: frontend
     volumes:
       - ./frontend:/app
+      - /app/node_modules
     ports:
       - "3000:3000"
     environment:

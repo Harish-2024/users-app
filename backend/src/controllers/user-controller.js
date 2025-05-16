@@ -71,9 +71,19 @@ const getUser = async (req, res) => {
     }
 }
 
+const deleteUser = async (req, res) => {
+    try {
+        await User.findByIdAndDelete(req.params.id)
+        return res.status(200).json({ message: "User deleted successfully" })
+    } catch (error) {
+        return res.status(500).json({ message: error.message })
+    }
+}
+
 export default {
     addUser,
     updateUser,
     getUsers,
-    getUser
+    getUser,
+    deleteUser
 }

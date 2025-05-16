@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 export default function EditUserForm({ user }) {
     const router = useRouter();
     const [formData, setFormData] = useState({
-        user: user.userName || "",
-        interest: user.interests.join(", ") || "",
+        userName: user.userName || "",
+        interests: user.interests.join(", ") || "",
         age: user.age || "",
         mobile: user.mobile || "",
         email: user.email || "",
@@ -22,7 +22,7 @@ export default function EditUserForm({ user }) {
         const formattedData = {
             ...formData,
             id: user._id,
-            interest: formData.interest.split(",").map((item) => item.trim()),
+            interests: formData.interests.split(",").map((item) => item.trim()),
             age: parseInt(formData.age, 10),
             mobile: parseInt(formData.mobile, 10),
         };
@@ -50,8 +50,8 @@ export default function EditUserForm({ user }) {
                 <label className="block">Name
                     <input
                         type="text"
-                        name="user"
-                        value={formData.user}
+                        name="userName"
+                        value={formData.userName}
                         onChange={handleChange}
                         placeholder="Name"
                         className="w-full p-2 border rounded"
@@ -60,8 +60,8 @@ export default function EditUserForm({ user }) {
                 <label className="block">Interests (comma-separated)
                     <input
                         type="text"
-                        name="interest"
-                        value={formData.interest}
+                        name="interests"
+                        value={formData.interests}
                         onChange={handleChange}
                         placeholder="Interests"
                         className="w-full p-2 border rounded"
